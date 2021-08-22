@@ -21,7 +21,7 @@ public interface AEDataRepository extends CrudRepository<AEData,Integer> {
     */
    @Query(
            value = " select * from ae_dt1 " +
-                   " where receipt_dt> sysdate() - 30 and (( field4 ='FAXIN' and FIELD8 ='OPERATIONSSUPPORTFAX') " +
+                   " where receipt_dt> sysdate - 30 and (( field4 ='FAXIN' and FIELD8 ='OPERATIONSSUPPORTFAX') " +
                    " OR (field4 = 'CUST CORR' and field8 = 'CUST CORRESPONDENCE')) order by docid",
            nativeQuery = true
    )
