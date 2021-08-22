@@ -1,4 +1,4 @@
-package com.org.queue.app.util;
+package com.org.queue.app;
 
 import com.org.queue.app.model.AEData;
 import com.org.queue.app.repository.AEDataRepository;
@@ -14,8 +14,7 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.anyOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -35,6 +34,16 @@ public class JpaDataTest {
                 .map(AEData::getId)
                 .allMatch(id -> Arrays.asList(1).contains(id)));
     }
+
+
+    @Test
+    public void whenQueryIncomplete_thenCorrectDataReturned() {
+//        List<AppExtender> result = repository.findAllWithCreationDateTimeBefore(
+//                new SimpleDateFormat("yyyy-MM-dd HH:mm").parse("2017-12-15 10:00"));
+
+        List<AEData> result = repository.getIncompleteQueue();
+        assertFalse(result.isEmpty());
+     }
 
     @Test
     public void createStream_whenFindAnyResultIsPresent_thenCorrect() {

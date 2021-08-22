@@ -1,6 +1,7 @@
+
 CREATE TABLE ae_dt1(
    docid  bigint(20) NOT NULL,
-   field1  bigint(20) DEFAULT NULL,
+   field1  varchar(255) DEFAULT NULL,
    field10  varchar(255) DEFAULT NULL,
    field11  varchar(255) DEFAULT NULL,
    field12  varchar(255) DEFAULT NULL,

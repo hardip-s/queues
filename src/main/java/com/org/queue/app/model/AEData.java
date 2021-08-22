@@ -11,16 +11,15 @@ import java.util.Objects;
 @Entity
 @Table(name = "ae_dt1")
 @Data
-
 //@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AEData implements Serializable {
     @Id
     @Column(name = "docid")
     private int  id;
-    private int field1;
+    private String field1;
     private String field2;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date field3;
     private String field4;
     private String field5;
@@ -36,11 +35,11 @@ public class AEData implements Serializable {
     private int iscom;
 
     @Column(name = "receipt_dt")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date receiptDt;
 
     @Column(name = "process_dt")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
      private Date processDt;
 
 }

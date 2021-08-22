@@ -14,6 +14,6 @@ public class IncompleteQueueDto {
      Date processed;
      String faxId;
      String lot;
-     int loanId;
+     String loanId;
 
 }

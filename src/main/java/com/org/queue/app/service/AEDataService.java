@@ -15,14 +15,15 @@ public class AEDataService {
     private AEDataRepository repository;
 
     public List<IncompleteQueueDto> incompleteQueue(){
-        List<AEData> aeDataList = repository.findAll();
+       // List<AEData> aeDataList = repository.findAll();
+        List<AEData> aeDataList = repository.getIncompleteQueue();
 
         return  aeDataList.stream().map(aeData->IncompleteQueueDto.builder()
                 .docId(aeData.getId())
                 .userName(aeData.getField4())
                 .sentTo(aeData.getField8())
                 .received(aeData.getReceiptDt())
-                .processed(aeData.getReceiptDt())
+                .processed(aeData.getProcessDt())
                 .faxId(aeData.getField6())
                 .lot(aeData.getField7())
                 .loanId(aeData.getField1())
